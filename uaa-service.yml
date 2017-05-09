@@ -8,7 +8,7 @@ security:
 spring:
   profiles: docker
   datasource:
-    url: jdbc:sqlserver://sqlserver:1433;databaseName=CBRDX_USUARIOS
+    url: jdbc:sqlserver://192.168.2.54:1433;databaseName=CBRDX_USUARIOS
     username: sa
     password: Sistemas2016
     initialize: true
