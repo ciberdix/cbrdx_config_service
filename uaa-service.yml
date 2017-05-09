@@ -1,0 +1,24 @@
+server:
+  port: 8181
+  contextPath: /uaa
+security:
+  user:
+    password: password
+  enable-csrf: false
+spring:
+  profiles: docker
+  datasource:
+    url: jdbc:sqlserver://sqlserver:1433;databaseName=CBRDX_USUARIOS
+    username: sa
+    password: Sistemas2016
+    initialize: true
+security.ignored: /resources/**
+eureka:
+  instance:
+    prefer-ip-address: true
+    non-secure-port: 8181
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
