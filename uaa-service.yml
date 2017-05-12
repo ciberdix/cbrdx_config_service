@@ -1,15 +1,5 @@
-server:
-  port: 8181
-  contextPath: /uaa
-security:
-  user:
-    password: password
-  enable-csrf: false
 spring:
   profiles: docker
-  oauth2:
-    resource:
-      userInfoUri: http://localhost:8181/uaa/user  
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://190.147.208.155:1433;databaseName=CBRDX_USUARIOS
@@ -31,13 +21,13 @@ spring:
       time-zone: Africa/Abidjan
       serialization:
         write_dates_as_timestamps: false
-security.ignored: /resources/**
+
+server:
+  port: ${SERVICE_PORT}
+
 eureka:
   instance:
     prefer-ip-address: true
-    non-secure-port: 8181
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://discovery-service:8761/eureka/
+    service-url:
+      defaultZone: ${REGISTRY_URL}
