@@ -7,6 +7,9 @@ security:
   enable-csrf: false
 spring:
   profiles: docker
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:8181/uaa/user  
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://190.147.208.155:1433;databaseName=CBRDX_USUARIOS
